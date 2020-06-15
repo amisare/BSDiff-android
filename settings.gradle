@@ -1,0 +1,3 @@
+rootProject.name='bsdiff_example'
+include ':app'
+include ':bsdiff'
