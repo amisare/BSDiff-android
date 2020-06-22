@@ -6,11 +6,11 @@ public class BSDiff {
         System.loadLibrary("bsdiff-lib");
     }
 
-    public static native int diff(String oldFilePath,
-                                  String newFilePath,
-                                  String patchFilePath);
-
-    public static native int patch(String oldFilePath,
+    public static native void diff(String oldFilePath,
                                    String newFilePath,
-                                   String patchFilePath);
+                                   String patchFilePath) throws Exception;
+
+    public static native void patch(String oldFilePath,
+                                    String newFilePath,
+                                    String patchFilePath) throws Exception;
 }

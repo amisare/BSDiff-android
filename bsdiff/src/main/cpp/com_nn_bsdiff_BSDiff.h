@@ -10,18 +10,18 @@ extern "C" {
 /*
  * Class:     com_nn_bsdiff_BSDiff
  * Method:    diff
- * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+ * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
  */
-JNIEXPORT jint JNICALL Java_com_nn_bsdiff_BSDiff_diff
-  (JNIEnv *, jobject, jstring, jstring, jstring);
+JNIEXPORT void JNICALL Java_com_nn_bsdiff_BSDiff_diff
+  (JNIEnv *, jclass, jstring, jstring, jstring);
 
 /*
  * Class:     com_nn_bsdiff_BSDiff
  * Method:    patch
- * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+ * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
  */
-JNIEXPORT jint JNICALL Java_com_nn_bsdiff_BSDiff_patch
-  (JNIEnv *, jobject, jstring, jstring, jstring);
+JNIEXPORT void JNICALL Java_com_nn_bsdiff_BSDiff_patch
+  (JNIEnv *, jclass, jstring, jstring, jstring);
 
 #ifdef __cplusplus
 }

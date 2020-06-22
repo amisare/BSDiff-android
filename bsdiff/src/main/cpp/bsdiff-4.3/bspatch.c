@@ -28,16 +28,7 @@
 __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bspatch/bspatch.c,v 1.1 2005/08/06 01:59:06 cperciva Exp $");
 #endif
 
-//// bzip2
-#include "../bzip2-1.0.6/bzlib.h"
-#include "../bzip2-1.0.6/bzlib.c"
-#include "../bzip2-1.0.6/crctable.c"
-#include "../bzip2-1.0.6/compress.c"
-#include "../bzip2-1.0.6/decompress.c"
-#include "../bzip2-1.0.6/randtable.c"
-#include "../bzip2-1.0.6/blocksort.c"
-#include "../bzip2-1.0.6/huffman.c"
-
+#include <bzlib.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -45,8 +36,7 @@ __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bspatch/bspatch.c,v 1.1 2005/08/06 01:59:
 #include <unistd.h>
 #include <fcntl.h>
 
-#define err(status, ...) return status
-#define errx(status, ...) return status
+#include "../bsmacros.h"
 
 static off_t offtin(u_char *buf)
 {
@@ -66,7 +56,8 @@ static off_t offtin(u_char *buf)
 	return y;
 }
 
-int __bspatch(int argc,char * argv[])
+__attribute__(( visibility("hidden") ))
+int __bspatch(int argc,char * argv[],char **errmsg)
 {
 	FILE * f, * cpf, * dpf, * epf;
 	BZFILE * cpfbz2, * dpfbz2, * epfbz2;

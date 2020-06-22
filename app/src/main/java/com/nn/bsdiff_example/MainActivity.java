@@ -32,23 +32,28 @@ public class MainActivity extends AppCompatActivity {
         File genPatchFile = new File(this.getCacheDir(), "gen_bsdiff_patch.patch");
         File genNewFile = new File(this.getCacheDir(), "gen_bsdiff_new.txt");
 
-
-        int i = BSDiff.diff(oldFile.getPath(), newFile.getPath(), genPatchFile.getPath());
-        Log.v("diff", "ret：" + String.valueOf(i));
-        String genPatchFileMD5 = getFileMD5(genPatchFile);
-        if (genPatchFileMD5.equals(patchFileMD5)) {
-            Log.v("diff", "diff sucess");
-        } else {
-            Log.v("diff", "diff fail");
+        try {
+            BSDiff.diff(oldFile.getPath(), newFile.getPath(), genPatchFile.getPath());
+            String genPatchFileMD5 = getFileMD5(genPatchFile);
+            if (genPatchFileMD5.equals(patchFileMD5)) {
+                Log.v("diff", "diff sucess");
+            } else {
+                Log.v("diff", "diff fail");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
-        int j = BSDiff.patch(oldFile.getPath(), genNewFile.getPath(), patchFile.getPath());
-        Log.v("patch", "ret：" + String.valueOf(j));
-        String genNewFileMD5 = getFileMD5(genNewFile);
-        if (genNewFileMD5.equals(newFileMD5)) {
-            Log.v("patch", "patch sucess");
-        } else {
-            Log.v("patch", "patch fail");
+        try {
+            BSDiff.patch(oldFile.getPath(), genNewFile.getPath(), patchFile.getPath());
+            String genNewFileMD5 = getFileMD5(genNewFile);
+            if (genNewFileMD5.equals(newFileMD5)) {
+                Log.v("patch", "patch sucess");
+            } else {
+                Log.v("patch", "patch fail");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

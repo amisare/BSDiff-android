@@ -30,7 +30,7 @@ __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bsdiff/bsdiff.c,v 1.1 2005/08/06 01:59:05
 
 #include <sys/types.h>
 
-#include "../bzip2-1.0.6/bzlib.h"
+#include <bzlib.h>
 #include <err.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -38,8 +38,7 @@ __FBSDID("$FreeBSD: src/usr.bin/bsdiff/bsdiff/bsdiff.c,v 1.1 2005/08/06 01:59:05
 #include <string.h>
 #include <unistd.h>
 
-#define err(status, ...) return status
-#define errx(status, ...) return status
+#include "../bsmacros.h"
 
 #define MIN(x,y) (((x)<(y)) ? (x) : (y))
 
@@ -196,7 +195,8 @@ static void offtout(off_t x,u_char *buf)
 	if(x<0) buf[7]|=0x80;
 }
 
-int __bsdiff(int argc,char *argv[])
+__attribute__(( visibility("hidden") ))
+int __bsdiff(int argc,char *argv[],char **errmsg)
 {
 	int fd;
 	u_char *old,*new;
