@@ -22,7 +22,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -55,7 +55,7 @@ dependencies {
 
 publish {
     userOrg = 'amisare'
-    groupId = 'com.nn.bsdiff.BSDiff'
+    groupId = 'com.nn'
     artifactId = 'BSDiff'
     publishVersion = '4.3.0.1'
     desc = 'BSDiff'
