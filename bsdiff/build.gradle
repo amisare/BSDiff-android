@@ -56,8 +56,8 @@ dependencies {
 publish {
     userOrg = 'amisare'
     groupId = 'com.nn'
-    artifactId = 'BSDiff'
+    artifactId = 'bsdiff-jni'
     publishVersion = '4.3.0.1'
-    desc = 'BSDiff'
+    desc = 'bsdiff'
     website = 'https://github.com/amisare/BSDiff-android'
 }
