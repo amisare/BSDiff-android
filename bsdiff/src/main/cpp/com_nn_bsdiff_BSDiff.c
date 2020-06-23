@@ -22,7 +22,7 @@ extern int __bspatch(int argc,char * argv[],char **errmsg);
  */
 JNIEXPORT void JNICALL Java_com_nn_bsdiff_BSDiff_diff
         (JNIEnv *env, jobject bsdiff, jstring oldFilePath, jstring newFilePath, jstring patchFilePath) {
-    int argc = 3;
+    int argc = 4;
     char * argv[argc];
     char * errmsg = NULL;
     argv[0] = "bsdiff";
